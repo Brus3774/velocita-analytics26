@@ -1,2 +1,7 @@
-# Giorno 1 — nessuna dipendenza esterna
-# Le sezioni successive aggiungeranno numpy, pandas, matplotlib, ecc
+Requirements:
+
+matplotlib      3.10.9
+numpy           2.4.4
+pandas          3.0.2
+pip             26.1
+seaborn         0.13.2
