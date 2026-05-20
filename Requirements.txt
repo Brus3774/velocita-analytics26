@@ -1,0 +1,2 @@
+# Giorno 1 — nessuna dipendenza esterna
+# Le sezioni successive aggiungeranno numpy, pandas, matplotlib, ecc
