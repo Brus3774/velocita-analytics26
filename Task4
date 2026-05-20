@@ -1,0 +1,58 @@
+Sql Teorico
+
+D1:
+SELECT c.id_corsa, c.id_bici, c.data_corsa, c.durata_minuti
+FROM corse c
+INNER JOIN stazioni s ON c.stazione_partenza = s.nome AND s.citta = 'Milano'
+ORDER BY c.data_corsa DESC;
+
+Descrizione: la query fa un join tra le tabelle corse e stazioni per unire le colonne indicate nella domanda con la città, viene tutto ordinato per la data in modo decrescente con un order by.
+
+D2:
+SELECT citta, COUNT(id_bici) AS n_bici_elettriche
+FROM biciclette
+WHERE tipo = 'elettrica'
+GROUP BY citta
+ORDER BY n_bici_elettriche DESC;
+
+Descrizione: la query conta le bici elettriche, usando solo la tabella biciclette, si condiziona il tipo (elettrica), si raggruppa per la città e si ordina infine per il numero delle bici.
+
+D3:
+SELECT b.tipo,
+       AVG(c.durata_minuti) AS durata_media,
+       MAX(c.durata_minuti) AS durata_max,
+       MIN(c.durata_minuti) AS durata_min
+FROM corse c
+INNER JOIN biciclette b ON c.id_bici = b.id_bici
+GROUP BY b.tipo;
+
+Descrizione: la query seleziona il tipo e fa nel select il calcolo di media massimo e minimo sulla durata minuti, unisce la tabella bici a quella corse e raggruppa per tipologia di bici.
+
+D4:
+SELECT s.nome AS stazione, COUNT(c.id_corsa) AS n_arrivi
+FROM corse c
+INNER JOIN stazioni s ON c.stazione_arrivo = s.nome
+WHERE s.citta = 'Milano'
+  AND c.data_corsa >= '2026-04-01'
+  AND c.data_corsa <  '2026-05-01'
+GROUP BY s.nome
+HAVING COUNT(c.id_corsa) > 50
+ORDER BY n_arrivi DESC;
+
+Descrizione: la query esegue un JOIN con stazioni per ricavare la città. Inserisce una condizione che restringe subito a Milano e aprile, GROUP BY aggrega per stazione e COUNT conta gli arrivi. HAVING filtra i gruppi sotto soglia perché opera dopo l'aggregazione.
+
+D5:
+SELECT u.id_utente, u.nome,
+       COUNT(c.id_corsa)   AS n_corse,
+       SUM(c.km_percorsi)  AS km_totali
+FROM utenti u
+INNER JOIN corse c ON u.id_utente = c.id_utente
+WHERE u.tipo_abbonamento = 'Premium'
+GROUP BY u.id_utente, u.nome
+HAVING COUNT(c.id_corsa) >= 10
+ORDER BY n_corse DESC;
+
+Descrizione: la query  esegue un JOIN  che collega ogni corsa al suo utente; aggiunge una condizione WHERE che isola i Premium prima di aggregare. HAVING COUNT >= 10 scarta gli utenti poco attivi.
+
+D6: La query calcola il bilancio di flusso di ogni stazione: per ciascuna conta quante corse sono arrivate (arrivi) e quante sono partite (partenze), e ne fa la differenza (bilancio = arrivi - partenze).
+L'informazione prodotta riguarda la gestione della flotta di bici: le stazioni con bilancio molto positivo accumulano bici (le persone ci arrivano ma non ripartono) e rischiano di saturarsi; quelle con bilancio negativo si svuotano e richiedono riposizionamento. 
