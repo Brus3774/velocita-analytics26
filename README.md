@@ -8,7 +8,7 @@
 VeloCittà Analytics è un sistema di analisi end-to-end sviluppato per VeloCittà, startup italiana di bike sharing attiva a Milano, Roma e Torino.
 Il progetto simula il lavoro di un analista junior: dalla modellazione dei dati con classi OOP, all'interrogazione teorica con SQL, fino all'elaborazione numerica con NumPy e Pandas e alla visualizzazione dei risultati.
 I dati utilizzati sono generati sinteticamente con seed fisso per garantire la riproducibilità dei risultati.
-Il progetto è stato sviluppato come elaborato finale del corso Part-Time Master in Data Analytics (Boolean).
+Il progetto è stato sviluppato come elaborato finale del corso Python per analisi dei dati di Masamune.
 
 ---
 
