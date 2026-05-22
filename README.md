@@ -82,7 +82,7 @@ I grafici vengono salvati automaticamente nella cartella `output/`.
 
 ## Considerazioni
 
-*(da compilare)*
+Nell'esecuzione del programma ci sono stati alcune difficoltà, la prima relativa alla lunghezza del codice, che per essere spiegato e commentato bene ha richiesto diverso tempo e ricerca, soprattutto nelle task 5, 6 e 7. In secondo luogo la parte di pulizia dati e visualizzazione è stata sicuramente la più complessa, nel primo caso soprattutto nella parte di preparazione dei dati e dell'aggregazione, su cui ho dovuto soffermarmi parecchio; mentre nel secondo caso più per una questione di dettagli grafici, su cui si può mettere ampiamente mano e di cui non sono completamente soddisfatto. Proprio questa è la parte che migliorerei perchè di fatto il grafico è il veicolo essenziale per "narrare" i dati dopo averli eleborati e più gli stessi sono chiari meglio comunichi ciò che i dati stanno ad indicare. Per quanto riguarda i dati, generati sinteticamente con seed fisso, mostrano una distribuzione uniforme delle corse tra Milano, Roma e Torino senza città dominanti. Le durate si concentrano prevalentemente nella fascia 15–45 minuti con code simili in tutte le città, e non emergono preferenze orarie significative per tipo di bicicletta. La correlazione tra durata e costo è molto alta per costruzione, mentre velocità e durata risultano scarsamente correlate a causa del fattore random introdotto nella generazione dei km. In un contesto reale ci si aspetterebbe pattern più marcati: picchi orari, differenze tra città e una maggiore domanda di elettriche su percorsi più lunghi.
 
 ---
 
